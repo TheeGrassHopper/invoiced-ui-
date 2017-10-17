@@ -1,3 +1,4 @@
+import 'purecss/build/pure.css';
 import './style.css';
 
 
@@ -5,6 +6,6 @@ import React from 'react';
 import { render } from 'react-dom';
 
 
-import HelloWorld from './components';
+import Layout from './components';
 
-render(<HelloWorld />, document.getElementById('app'));
+render(<Layout />, document.getElementById('app'));
