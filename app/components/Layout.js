@@ -16,24 +16,25 @@ class Layout extends React.Component {
 		const newId = contact[contact.length - 1].id + 1
 		console.log('newId',newId)
 		this.setState({
-			contacts: contact.concat({id: newId, name:`New Contact-${newId}`, email: `${newId}@example.com` }) 
+			contacts: contact.concat({id: newId, name: this.refs.name.value, email: this.refs.email.value }) 
 		})
+		this.refs.name.value = null
+		this.refs.email.value = null
 	}
 
 	newContact = () =>
   	<div className='pure-g'>
     	<div className='pure-u-12-24'>
-    		<from className="pure-form">
-    			<fieldset>
-    				<legend>New Contact</legend>
-    				<input type='email' placeholder='example@example.com' />
-    				<input type='text' placeholder='Name'/>
-    				<button type="submit" className="pure-button pure-button-primary">Add</button>
-    			</fieldset>
-    		</from>
+    		<form className='pure-form' onSubmit={this.addContact}>
+    		    <fieldset>
+  		        <legend>New Contact</legend>
+  		      <input ref='email' type='email' placeholder='Email'/>
+  		      <input ref='name' type='text' placeholder='name'/>
+  		      <button type='submit' className='pure-button pure-button-primary'>Add</button>
+    		  </fieldset>
+    		</form>
     	</div>
     </div>;
-	
 
   render() {
     return(
